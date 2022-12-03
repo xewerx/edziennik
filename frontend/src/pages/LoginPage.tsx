@@ -1,10 +1,11 @@
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
+import { SyntheticEvent } from "react";
 
 function LoginPage() {
-  // @ts-ignore
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: SyntheticEvent) => {
+    e.preventDefault();
     console.log(e);
   };
 
@@ -14,8 +15,7 @@ function LoginPage() {
         margin="normal"
         required
         fullWidth
-        id="email"
-        label="Email Address"
+        label="Adres e-mail"
         name="email"
         autoComplete="email"
         autoFocus
@@ -25,13 +25,12 @@ function LoginPage() {
         required
         fullWidth
         name="password"
-        label="Password"
+        label="Hasło"
         type="password"
-        id="password"
         autoComplete="current-password"
       />
       <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-        Sign In
+        Zaloguj się
       </Button>
     </Box>
   );
