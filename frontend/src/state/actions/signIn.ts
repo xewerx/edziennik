@@ -1,22 +1,17 @@
-import axios from "axios";
-import { Dispatch } from "react";
-import { checkForEnv } from "../../utils/checkForEnv";
+import { users } from "../../database/users";
 import { signIn } from "../slices/user";
+import { AppDispatch } from "../store";
 
-export const loginAction = async (
+export const signInAction = async (
   email: string,
   password: string,
-  dispatch: Dispatch<any>
+  dispatch: AppDispatch
 ) => {
   try {
-    const { data: user } = await axios.post(
-      `${checkForEnv(process.env.REACT_APP_API_URL)}/auth/login`,
-      {
-        username: email,
-        password,
-      }
+    const user = users.find(
+      (user) => user.email === email && user.password === password
     );
-    console.log(user);
+    if (!user) throw new Error("Login lub hasło jest nieprawidłowe!");
     localStorage.setItem("user", JSON.stringify(user));
     dispatch(
       signIn({

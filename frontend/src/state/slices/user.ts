@@ -1,9 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ActionType } from "./types";
 
+export type UserType = "teacher" | "admin" | "studentOrParent" | "director";
+
 export type User = {
   id: number;
   username: string;
+  email: string;
+  password: string;
+  userType: UserType;
 };
 
 export type UserState = {

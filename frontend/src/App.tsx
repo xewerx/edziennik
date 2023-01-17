@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Router from "./components/Router";
+import { useSelector } from "react-redux";
+import { RootState } from "./state/store";
 
 const Container = styled.div`
   width: 100vw;
@@ -12,9 +14,11 @@ const Container = styled.div`
 `;
 
 function App() {
+  const user = useSelector((state: RootState) => state.userState.user);
+
   return (
     <Container>
-      <Router isUserAuthenticated={false} />
+      <Router isUserAuthenticated={Boolean(user)} userType={user?.userType} />
     </Container>
   );
 }
