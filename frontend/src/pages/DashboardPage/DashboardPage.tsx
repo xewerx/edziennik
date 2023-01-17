@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Routes, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 import Table from "../../components/Table";
+import { frequencyColumns, frequencyRows } from "../../database/frequency";
 import { ratingColumns, ratingRows } from "../../database/ratings";
 import { signOutAction } from "../../state/actions/signOutAction";
 import { UserType } from "../../state/slices/user";
@@ -50,9 +51,14 @@ function DashboardPage({ userType }: Props) {
       <Content>
         <Routes>
           <Route
-            path="*"
+            path="ratings"
             // @ts-ignore
             element={<Table columns={ratingColumns} rows={ratingRows} />}
+          />
+          <Route
+            path="frequency"
+            // @ts-ignore
+            element={<Table columns={frequencyColumns} rows={frequencyRows} />}
           />
         </Routes>
       </Content>
