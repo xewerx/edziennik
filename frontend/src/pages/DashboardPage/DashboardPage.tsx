@@ -3,12 +3,14 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { Routes, Route, Link } from "react-router-dom";
 import styled from "styled-components";
-import Table from "../../components/Table";
-import { frequencyColumns, frequencyRows } from "../../database/frequency";
-import { ratingColumns, ratingRows } from "../../database/ratings";
+import Ratings from "../../components/Ratings";
+import Announcements from "../../components/Announcements";
 import { signOutAction } from "../../state/actions/signOutAction";
 import { UserType } from "../../state/slices/user";
 import { NavBarElementsByType } from "./constants";
+import Frequency from "../../components/Frequency";
+import MyData from "../../components/MyData";
+import Users from "../../components/Users";
 
 const NavBar = styled.div`
   position: fixed;
@@ -28,7 +30,6 @@ const Content = styled.div`
   width: 50vw;
   height: 60vh;
   margin-left: 40vw;
-  background-color: azure;
 `;
 
 const LinkWrapper = styled.div`
@@ -49,6 +50,9 @@ const LinkWrapper = styled.div`
   a {
     color: #000;
     text-decoration: none !important;
+    width: 100%;
+    height: 100%;
+    display: block;
   }
 
   &:last-child {
@@ -101,16 +105,11 @@ function DashboardPage({ userType }: Props) {
       </NavBar>
       <Content>
         <Routes>
-          <Route
-            path="ratings"
-            // @ts-ignore
-            element={<Table columns={ratingColumns} rows={ratingRows} />}
-          />
-          <Route
-            path="frequency"
-            // @ts-ignore
-            element={<Table columns={frequencyColumns} rows={frequencyRows} />}
-          />
+          <Route path="ratings" element={<Ratings />} />
+          <Route path="frequency" element={<Frequency />} />
+          <Route path="announcements" element={<Announcements />} />
+          <Route path="mydata" element={<MyData />} />
+          <Route path="users" element={<Users />} />
         </Routes>
       </Content>
     </>

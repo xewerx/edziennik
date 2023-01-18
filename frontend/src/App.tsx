@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "./state/store";
 
 const Container = styled.div`
-  width: 100vw;
   height: 100vh;
   background-color: #a1c2e0;
   display: flex;

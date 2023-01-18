@@ -12,6 +12,9 @@ function Table({ rows, columns }: Props) {
       rows={rows}
       columns={columns}
       experimentalFeatures={{ newEditingApi: true }}
+      sx={{
+        backgroundColor: "#ffffff",
+      }}
     />
   );
 }

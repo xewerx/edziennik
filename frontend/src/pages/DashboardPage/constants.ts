@@ -9,20 +9,18 @@ const studentOrParentNavbarElements = [...baseElements];
 
 const adminNavbarElements = [
   ...baseElements,
-  { name: "Stwórz użytkownika", path: "create-user" },
-  { name: "Edytuj użytkownika", path: "edit-user" },
-  { name: "Dodaj przedmior", path: "add-subject" },
+  { name: "Użytkownicy", path: "users" },
+  { name: "Dodaj przedmiot", path: "add-subject" },
 ];
 
 const teacherNavbarElements = [
   ...baseElements,
-  { name: "Stwórz użytkownika", path: "create-user" },
-  { name: "Edytuj użytkownika", path: "edit-user" },
+  { name: "Użytkownicy", path: "users" },
 ];
 
 const directorNavbarElements = [
   ...baseElements,
-  { name: "Dodaj przedmior", path: "add-subject" },
+  { name: "Dodaj przedmiot", path: "add-subject" },
 ];
 
 export const NavBarElementsByType = new Map([
