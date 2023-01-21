@@ -11,6 +11,7 @@ import { NavBarElementsByType } from "./constants";
 import Frequency from "../../components/Frequency";
 import MyData from "../../components/MyData";
 import Users from "../../components/Users";
+import AddSubject from "../../components/AddSubject";
 
 const NavBar = styled.div`
   position: fixed;
@@ -87,7 +88,7 @@ function DashboardPage({ userType }: Props) {
       <NavBar>
         <Logo>E-DZIENNIK</Logo>
         {NavBarElementsByType.get(userType!)?.map((element) => (
-          <LinkWrapper>
+          <LinkWrapper key={element.name}>
             <Link to={element.path}>{element.name}</Link>
           </LinkWrapper>
         ))}
@@ -110,6 +111,7 @@ function DashboardPage({ userType }: Props) {
           <Route path="announcements" element={<Announcements />} />
           <Route path="mydata" element={<MyData />} />
           <Route path="users" element={<Users />} />
+          <Route path="add-subject" element={<AddSubject />} />
         </Routes>
       </Content>
     </>

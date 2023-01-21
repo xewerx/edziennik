@@ -13,10 +13,7 @@ const adminNavbarElements = [
   { name: "Dodaj przedmiot", path: "add-subject" },
 ];
 
-const teacherNavbarElements = [
-  ...baseElements,
-  { name: "Użytkownicy", path: "users" },
-];
+const teacherNavbarElements = [...baseElements];
 
 const directorNavbarElements = [
   ...baseElements,
